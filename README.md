@@ -56,3 +56,11 @@ if results.isInvalid {
 # Installation and Setup
 
 To be prepared.
+
+# Attention
+
+This library is not enough yet.
+Maybe I will be completed before or after August 30.
+
+Thank you for reading to the end.
+I am Japanese. English does not speak only a little.
