@@ -16,6 +16,7 @@
 		54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */; };
 		54BCD9141D6C798700640B5B /* RNConstraintNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */; };
 		54BCD9151D6C798700640B5B /* RNConstraintNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */; };
+		54BCD9231D6C95FD00640B5B /* RNConstraintAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9221D6C95FD00640B5B /* RNConstraintAlphabet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		54BCD9091D6C31FD00640B5B /* RNValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNValidator.swift; sourceTree = "<group>"; };
 		54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintLength.swift; sourceTree = "<group>"; };
 		54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintNumeric.swift; sourceTree = "<group>"; };
+		54BCD9221D6C95FD00640B5B /* RNConstraintAlphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintAlphabet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */,
 				54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */,
+				54BCD9221D6C95FD00640B5B /* RNConstraintAlphabet.swift */,
 			);
 			name = Constraints;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				54BCD90E1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD9141D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
 				54BCD90A1D6C31FD00640B5B /* RNValidator.swift in Sources */,
+				54BCD9231D6C95FD00640B5B /* RNConstraintAlphabet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +411,7 @@
 				54BCD8E71D6C309300640B5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54BCD8E81D6C309300640B5B /* Build configuration list for PBXNativeTarget "RNMoValiTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				54BCD8EA1D6C309300640B5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

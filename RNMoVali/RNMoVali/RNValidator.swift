@@ -88,15 +88,20 @@ public protocol RNValidatable : AnyObject
 public class RNValidationResult {
     var fields:Dictionary<String, String> = Dictionary<String, String>()
     
-    subscript (tag:String) -> String {
+    subscript (tag:String) -> String? {
         get {
-            return (fields[tag])!
+            if fields.contains({k,_ in k == tag}) {
+                return (fields[tag])!
+            }
+            return nil
         }
     }
     
     public var isValid:Bool {
         return fields.count <= 0
     }
+    public var isInvalid:Bool { return !isValid }
+    
     private func append(tag:String, message:String){
         fields[tag] = message
     }

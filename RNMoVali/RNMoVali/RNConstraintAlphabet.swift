@@ -1,5 +1,5 @@
 //
-//  RNConstraintNumeric.swift
+//  RNConstraintAlphabet.swift
 //  RNMoVali
 //
 //  Created by mothule on 2016/08/23.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class RNConstraintNumeric : RNConstraintable {
+public class RNConstraintAlphabet : RNConstraintable {
     
     private let errorMessage:String
     
@@ -27,13 +27,13 @@ public class RNConstraintNumeric : RNConstraintable {
             
             let regex: NSRegularExpression
             do {
-                let pattern = "^[0-9]+$"
+                let pattern = "^[a-z]+$"
                 regex = try NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
             }catch let error as NSError {
                 print("error:\(error)")
                 return ret
             }
-
+            
             // IsMatch
             let results:[NSTextCheckingResult] = regex.matchesInString(string, options: [], range: NSMakeRange(0, string.characters.count))
             if results.count <= 0{
