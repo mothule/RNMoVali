@@ -10,6 +10,12 @@
 		54BCD8D51D6C309300640B5B /* RNMoVali.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCD8D41D6C309300640B5B /* RNMoVali.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54BCD8DC1D6C309300640B5B /* RNMoVali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BCD8D11D6C309300640B5B /* RNMoVali.framework */; };
 		54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */; };
+		54BCD90A1D6C31FD00640B5B /* RNValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9091D6C31FD00640B5B /* RNValidator.swift */; };
+		54BCD90B1D6C31FD00640B5B /* RNValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9091D6C31FD00640B5B /* RNValidator.swift */; };
+		54BCD90E1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */; };
+		54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */; };
+		54BCD9141D6C798700640B5B /* RNConstraintNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */; };
+		54BCD9151D6C798700640B5B /* RNConstraintNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,9 @@
 		54BCD8DB1D6C309300640B5B /* RNMoValiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNMoValiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMoValiTests.swift; sourceTree = "<group>"; };
 		54BCD8E21D6C309300640B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54BCD9091D6C31FD00640B5B /* RNValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNValidator.swift; sourceTree = "<group>"; };
+		54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintLength.swift; sourceTree = "<group>"; };
+		54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintNumeric.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +80,10 @@
 		54BCD8D31D6C309300640B5B /* RNMoVali */ = {
 			isa = PBXGroup;
 			children = (
+				54BCD90C1D6C3FB600640B5B /* Constraints */,
 				54BCD8D41D6C309300640B5B /* RNMoVali.h */,
 				54BCD8D61D6C309300640B5B /* Info.plist */,
+				54BCD9091D6C31FD00640B5B /* RNValidator.swift */,
 			);
 			path = RNMoVali;
 			sourceTree = "<group>";
@@ -84,6 +95,15 @@
 				54BCD8E21D6C309300640B5B /* Info.plist */,
 			);
 			path = RNMoValiTests;
+			sourceTree = "<group>";
+		};
+		54BCD90C1D6C3FB600640B5B /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */,
+				54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */,
+			);
+			name = Constraints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54BCD90E1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
+				54BCD9141D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
+				54BCD90A1D6C31FD00640B5B /* RNValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54BCD9151D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
+				54BCD90B1D6C31FD00640B5B /* RNValidator.swift in Sources */,
+				54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +336,7 @@
 		54BCD8E61D6C309300640B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +347,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mothule.RNMoVali;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		54BCD8E71D6C309300640B5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

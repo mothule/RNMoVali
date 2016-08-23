@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RNMoVali
+
+
+class ProfileEntity :
+
 
 class ViewController: UIViewController {
 

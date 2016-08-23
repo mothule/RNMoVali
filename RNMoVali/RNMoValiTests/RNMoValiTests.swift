@@ -21,16 +21,44 @@ class RNMoValiTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    class TestEntity : RNValidatable {
+        var name:String = ""
+        var age:Int = 0
+        
+        func bindConstraint(binder: RNConstraintBinder) {
+            binder.bind(name, accessTag:"name")
+                .addConstraint(RNConstraintLength(max:10, errorMessage:"character length is 10"))
+                .addConstraint(RNConstraintNumeric(errorMessage:"only numeric"))
         }
     }
+    
+    func test_() {
+        let target = TestEntity()
+        
+        target.name = "0123456789"
+        var ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid, true)
+        XCTAssertEqual(ret.fields.count, 0)
+        
+        target.name = "01234567890"
+        ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid, false)
+        XCTAssertEqual(ret.fields["name"], "character length is 10")
+        
+        target.name = "012345678a"
+        ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid, false)
+        XCTAssertEqual(ret.fields["name"], "only numeric")
+        
+        
+    }
+    
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measureBlock {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
     
 }
