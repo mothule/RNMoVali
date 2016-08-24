@@ -19,19 +19,8 @@ public class RNConstraintRequired: RNConstraintable {
     public func constrain(object: Any?) -> RNConstraintResult {
         let ret = RNConstraintResult()
         if object == nil {
-            ret.errorMessage = errorMessage
-            ret.invalidate()
+            ret.invalidate(errorMessage)
         }
         return ret
-    }
-
-    public func constrain(object: AnyObject) -> RNConstraintResult {
-        let ret = RNConstraintResult()
-        return ret
-//        if let _ = object {
-//            ret.errorMessage = errorMessage
-//            ret.invalidate()
-//        }
-//        return ret
     }
 }

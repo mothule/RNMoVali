@@ -14,7 +14,6 @@ public class RNConstraintAlphabet : RNConstraintable {
     
     public init(errorMessage:String){
         self.errorMessage = errorMessage
-        
     }
     
     public func constrain(object:Any?) -> RNConstraintResult{
@@ -25,20 +24,8 @@ public class RNConstraintAlphabet : RNConstraintable {
                 return ret
             }
             
-            let regex: NSRegularExpression
-            do {
-                let pattern = "^[a-z]+$"
-                regex = try NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
-            }catch let error as NSError {
-                print("error:\(error)")
-                return ret
-            }
-            
-            // IsMatch
-            let results:[NSTextCheckingResult] = regex.matchesInString(string, options: [], range: NSMakeRange(0, string.characters.count))
-            if results.count <= 0{
-                ret.errorMessage = errorMessage
-                ret.invalidate()
+            if Regex.make("[a-z]+$", options: .CaseInsensitive).isMatch(string) == false {
+                ret.invalidate(errorMessage)
             }
         }
         return ret

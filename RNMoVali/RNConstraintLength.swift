@@ -18,7 +18,6 @@ public class RNConstraintLength : RNConstraintable {
         self.min = min
         self.max = max
         self.errorMessage = errorMessage
-        
     }
     public init(max:Int, errorMessage:String){
         self.min = 0
@@ -30,8 +29,7 @@ public class RNConstraintLength : RNConstraintable {
         let ret = RNConstraintResult()
         if let string = object as? String{
             if string.characters.count < min || string.characters.count > max {
-                ret.errorMessage = errorMessage
-                ret.invalidate()
+                ret.invalidate(errorMessage)
             }
         }
         return ret
