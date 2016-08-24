@@ -17,7 +17,7 @@ public class RNConstraintAlphabet : RNConstraintable {
         
     }
     
-    public func constrain(object:AnyObject) -> RNConstraintResult{
+    public func constrain(object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
         if let string = object as? String{
             

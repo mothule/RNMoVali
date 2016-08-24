@@ -26,7 +26,7 @@ public class RNConstraintLength : RNConstraintable {
         self.errorMessage = errorMessage
     }
     
-    public func constrain(object:AnyObject) -> RNConstraintResult{
+    public func constrain(object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
         if let string = object as? String{
             if string.characters.count < min || string.characters.count > max {

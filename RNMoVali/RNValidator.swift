@@ -10,16 +10,16 @@ import Foundation
 
 
 public class RNConstraintSet {
-    var field:AnyObject
-    var constraints:Array<RNConstraintable> = Array<RNConstraintable>()
-    var tag:String
-    
-    init(field:AnyObject, constraint:RNConstraintable, tag:String ){
+    var field: Any?
+    var constraints: Array<RNConstraintable> = Array<RNConstraintable>()
+    var tag: String
+
+    init(field: Any?, constraint: RNConstraintable, tag: String ) {
         self.field = field
         self.constraints.append(constraint)
         self.tag = tag
     }
-    init(field:AnyObject, tag:String){
+    init(field: Any?, tag: String) {
         self.field = field
         self.tag = tag
     }
@@ -29,17 +29,17 @@ public class RNConstraintSet {
     a method chainable binder for constraints.
  */
 public class RNConstraintBinder {
-    
-    private var targetModel:AnyObject
-    private var constraints:Array<RNConstraintSet> = []
-    
-    public init(targetModel:AnyObject) {
+
+    private var targetModel: AnyObject
+    private var constraints: Array<RNConstraintSet> = []
+
+    public init(targetModel: AnyObject) {
         self.targetModel = targetModel
     }
-    
-    public func bind(field:AnyObject, accessTag:String) -> RNConstraintAppender{
+
+    public func bind(field: Any?, accessTag: String) -> RNConstraintAppender {
         let constraintSet = RNConstraintSet(field: field, tag:accessTag)
-        let appender:RNConstraintAppender = RNConstraintAppender(owner:constraintSet)
+        let appender: RNConstraintAppender = RNConstraintAppender(owner:constraintSet)
         constraints.append(constraintSet)
         return appender
     }
@@ -48,14 +48,14 @@ public class RNConstraintBinder {
 // 制約加えるクラス.
 // 制約は自分は持たずにコンストラクタ時に受け取ったオーナーに渡す.
 public class RNConstraintAppender {
-    
-    private weak var owner:RNConstraintSet!
-    
-    public init(owner:RNConstraintSet){
+
+    private weak var owner: RNConstraintSet!
+
+    public init(owner: RNConstraintSet) {
         self.owner = owner
     }
-    
-    public func addConstraint(constraint:RNConstraintable) -> RNConstraintAppender{
+
+    public func addConstraint(constraint: RNConstraintable) -> RNConstraintAppender {
         owner.constraints.append(constraint)
         return self
     }
@@ -65,72 +65,84 @@ public class RNConstraintAppender {
     Constrain able to protocol for validator
  */
 public protocol RNConstraintable {
-    func constrain(object:AnyObject) -> RNConstraintResult
+    func constrain(object: Any?) -> RNConstraintResult
 }
+
 public class RNConstraintResult {
-    var errorMessage:String?
-    var isValid:Bool = true
-    var isInvalid:Bool {
+    var errorMessage: String?
+    var isValid: Bool = true
+    var isInvalid: Bool {
         return !isValid
     }
-    func invalidate(){ isValid = false }
+    func invalidate() { isValid = false }
 }
 
 /**
     validate able to protocol for model
  */
-public protocol RNValidatable : AnyObject
-{
-    func bindConstraint(binder:RNConstraintBinder)
+public protocol RNValidatable: AnyObject {
+    func bindConstraint(binder: RNConstraintBinder)
 }
 
 
 public class RNValidationResult {
-    var fields:Dictionary<String, String> = Dictionary<String, String>()
-    
-    subscript (tag:String) -> String? {
+    public class Value {
+        var messages: [String] = []
+        var isContainsError: Bool {
+            return messages.count > 0
+        }
+    }
+
+    var fields: Dictionary<String, Value> = Dictionary<String, Value>()
+
+    subscript (tag: String) -> Value? {
         get {
-            if fields.contains({k,_ in k == tag}) {
-                return (fields[tag])!
+            if fields.contains({k, _ in k == tag}) {
+                return fields[tag]
             }
             return nil
         }
     }
-    
-    public var isValid:Bool {
+
+    public var isValid: Bool {
         return fields.count <= 0
     }
-    public var isInvalid:Bool { return !isValid }
-    
-    private func append(tag:String, message:String){
-        fields[tag] = message
+    public var isInvalid: Bool { return !isValid }
+
+    private func append(tag: String, message: String) {
+        let v: Value
+        if fields.contains({k, _ in k == tag}) {
+            v = fields[tag]!
+        } else {
+           v = Value()
+        }
+        v.messages.append(message)
+        fields[tag] = v
     }
 }
 
 /**
     Entry instance.
  */
-public class RNValidator
-{
+public class RNValidator {
     // Singleton instance.
-    public static let sharedInstance:RNValidator = RNValidator()
-    private init(){
+    public static let sharedInstance: RNValidator = RNValidator()
+    private init() {
     }
 
-    public func validate(targetModel:RNValidatable) -> RNValidationResult
-    {
-        let results:RNValidationResult = RNValidationResult()
+    public func validate(targetModel: RNValidatable) -> RNValidationResult {
+        let results: RNValidationResult = RNValidationResult()
 
 
         // ターゲットの制約をバインダーに集約.
-        let binder:RNConstraintBinder = RNConstraintBinder(targetModel: targetModel)
+        let binder: RNConstraintBinder = RNConstraintBinder(targetModel: targetModel)
         targetModel.bindConstraint(binder)
-        
+
         // 全ての制約のチェック.
         // 全て実行して失敗のみを格納する.
-        binder.constraints.forEach{ set in
-            set.constraints.forEach{ constraintable in
-                let constraintResult:RNConstraintResult = constraintable.constrain(set.field)
+        binder.constraints.forEach { set in
+            set.constraints.forEach { constraintable in
+                let constraintResult: RNConstraintResult = constraintable.constrain(set.field)
                 if constraintResult.isInvalid {
                     results.append(set.tag, message: constraintResult.errorMessage! )
                 }
