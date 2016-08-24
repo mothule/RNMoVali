@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3A4B6D1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
+		2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
 		54BCD8D51D6C309300640B5B /* RNMoVali.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCD8D41D6C309300640B5B /* RNMoVali.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54BCD8DC1D6C309300640B5B /* RNMoVali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BCD8D11D6C309300640B5B /* RNMoVali.framework */; };
 		54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintRequired.swift; sourceTree = "<group>"; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8D41D6C309300640B5B /* RNMoVali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
 		54BCD8D61D6C309300640B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 				54BCD90D1D6C3FE900640B5B /* RNConstraintLength.swift */,
 				54BCD9131D6C798700640B5B /* RNConstraintNumeric.swift */,
 				54BCD9221D6C95FD00640B5B /* RNConstraintAlphabet.swift */,
+				2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */,
 			);
 			name = Constraints;
 			sourceTree = "<group>";
@@ -219,6 +223,7 @@
 			files = (
 				54BCD90E1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD9141D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
+				2F3A4B6D1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */,
 				54BCD90A1D6C31FD00640B5B /* RNValidator.swift in Sources */,
 				54BCD9231D6C95FD00640B5B /* RNConstraintAlphabet.swift in Sources */,
 			);
@@ -230,6 +235,7 @@
 			files = (
 				54BCD9151D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
 				54BCD90B1D6C31FD00640B5B /* RNValidator.swift in Sources */,
+				2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */,
 				54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */,
 			);
