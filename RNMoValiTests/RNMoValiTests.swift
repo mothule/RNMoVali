@@ -11,17 +11,6 @@ import XCTest
 
 class RNMoValiTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-
     class TestEntity: RNValidatable {
         var name: String = ""
         var age: Int = 0
@@ -59,8 +48,9 @@ class RNMoValiTests: XCTestCase {
         XCTAssertEqual(nameResult?.messages[0], Profile.NameRequiredErrorMessage)
     }
 
-
-    func test_() {
+    // 正常系
+    // Model内にOption型フィールドが含まれていなくても、正常動作すること.
+    func test__Usecase_NotOptionalFields_Work() {
         let target = TestEntity()
 
         target.name = "0123456789"
@@ -78,12 +68,54 @@ class RNMoValiTests: XCTestCase {
         XCTAssertEqual(ret.isValid, false)
         XCTAssertEqual(ret.fields["name"]?.messages[0], "only numeric")
     }
-
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measureBlock {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
+    
+    // Model内にOption型と非Option型のフィールドが混じってても、正常動作すること.
+    func test__Usecase_MixNotOptionalAndOptionalFields_Work()
+    {
+        class MixedClass : RNValidatable {
+            var name:String?
+            var value:Int = 0
+            var areaCode:Int = 0
+            
+            private func bindConstraint(binder: RNConstraintBinder) {
+                binder.bind(name, accessTag: "name")
+                    .addConstraint(RNConstraintRequired(errorMessage: "It must have a name."))
+                    .addConstraint(RNConstraintLength(max: 10, errorMessage: "10 characters or less"))
+                binder.bind(value, accessTag: "value")
+                    .addConstraint(RNConstraintRange<Int>(min: 0, max: 10000, errorMessage: "It is 0 to 10000"))
+                binder.bind(areaCode, accessTag: "areaCode")
+                    .addConstraint(RNConstraintRange<Int>(min: 0, max: 10, errorMessage: "It is 0 to 10"))
+            }
+        }
+        
+        // invalid required constraint
+        let target = MixedClass()
+        var ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid,false)
+        XCTAssertEqual(ret.fields.count, 1)
+        XCTAssertEqual(ret.fields["name"]?.messages.count, 1)
+        XCTAssertEqual(ret.fields["name"]?.messages[0], "It must have a name.")
+        
+        // valid
+        target.name = "monkey"
+        target.value = 1
+        ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid,true)
+        XCTAssertEqual(ret.fields.count, 0)
+        
+        // invalid over character length and invalid value over range
+        target.name = "monkeymonkeymonkeymonkeymonkeymonkeymonkeymonkey"
+        target.value = -1
+        target.areaCode = 11
+        ret = RNValidator.sharedInstance.validate(target)
+        XCTAssertEqual(ret.isValid,false)
+        XCTAssertEqual(ret.fields.count, 3)
+        XCTAssertEqual(ret.fields["name"]?.messages.count,1)
+        XCTAssertEqual(ret.fields["name"]?.messages[0], "10 characters or less")
+        XCTAssertEqual(ret.fields["value"]?.messages.count,1)
+        XCTAssertEqual(ret.fields["value"]?.messages[0], "It is 0 to 10000")
+        XCTAssertEqual(ret.fields["areaCode"]?.messages.count,1)
+        XCTAssertEqual(ret.fields["areaCode"]?.messages[0], "It is 0 to 10")
+    }
 
 }
