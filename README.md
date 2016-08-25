@@ -63,8 +63,7 @@ pod 'RNMoVali', '~> 1.0'
 
 # Attention
 
-This library is not enough yet.
-Maybe I will be completed before or after August 30.
+I am Japanese. English does not speak only a little. and write too.
+Often you will find a typo. At that time, close your eyes. And may you send kindness pull-requests.
 
 Thank you for reading to the end.
-I am Japanese. English does not speak only a little.
