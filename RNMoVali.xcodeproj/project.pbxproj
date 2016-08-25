@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F04229A1D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0422991D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift */; };
 		2F3A4B6D1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
 		2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
 		2F7CF3051D6E789E000823CF /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF3041D6E789E000823CF /* RegexTests.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0422991D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFieldConstraintsTests.swift; sourceTree = "<group>"; };
 		2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintRequired.swift; sourceTree = "<group>"; };
 		2F7CF3041D6E789E000823CF /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				54F0CA2F1D6E05A9001A5945 /* Constraints */,
 				54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */,
 				54BCD8E21D6C309300640B5B /* Info.plist */,
+				2F0422991D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift */,
 			);
 			path = RNMoValiTests;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */,
 				54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */,
+				2F04229A1D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

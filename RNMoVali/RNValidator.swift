@@ -9,16 +9,11 @@
 import Foundation
 
 
-public class RNConstraintSet {
-    var field: Any?
-    var constraints: Array<RNConstraintable> = Array<RNConstraintable>()
-    var tag: String
+public class RNFieldConstraints {
+    let field: Any?
+    let tag: String
+    var constraints: [RNConstraintable] = []
 
-    init(field: Any?, constraint: RNConstraintable, tag: String ) {
-        self.field = field
-        self.constraints.append(constraint)
-        self.tag = tag
-    }
     init(field: Any?, tag: String) {
         self.field = field
         self.tag = tag
@@ -31,14 +26,14 @@ public class RNConstraintSet {
 public class RNConstraintBinder {
 
     private var targetModel: AnyObject
-    private var constraints: Array<RNConstraintSet> = []
+    private var constraints: Array<RNFieldConstraints> = []
 
     public init(targetModel: AnyObject) {
         self.targetModel = targetModel
     }
 
     public func bind(field: Any?, accessTag: String) -> RNConstraintAppender {
-        let constraintSet = RNConstraintSet(field: field, tag:accessTag)
+        let constraintSet = RNFieldConstraints(field: field, tag:accessTag)
         let appender: RNConstraintAppender = RNConstraintAppender(owner:constraintSet)
         constraints.append(constraintSet)
         return appender
@@ -49,9 +44,9 @@ public class RNConstraintBinder {
 // 制約は自分は持たずにコンストラクタ時に受け取ったオーナーに渡す.
 public class RNConstraintAppender {
 
-    private weak var owner: RNConstraintSet!
+    private weak var owner: RNFieldConstraints!
 
-    public init(owner: RNConstraintSet) {
+    public init(owner: RNFieldConstraints) {
         self.owner = owner
     }
 
