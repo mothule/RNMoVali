@@ -57,6 +57,12 @@ if results.isInvalid {
 
 To be prepared.
 
+Support CocoaPods
+
+~~~podfile
+pod 'RNMoVali', '~> 1.0'
+~~~
+
 # Attention
 
 This library is not enough yet.
