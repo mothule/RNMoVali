@@ -49,7 +49,7 @@ class RNMoValiTests: XCTestCase {
 
     // 正常系
     // Model内にOption型フィールドが含まれていても正常動作すること.
-    func test__should_work_the_model_contains_optional_fields() {
+    func test__Usecase_OptionalFields_Work() {
         let target = Profile()
         let ret: RNValidationResult = RNValidator.sharedInstance.validate(target)
         XCTAssertEqual(ret.isValid, false)
