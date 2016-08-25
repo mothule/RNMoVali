@@ -45,9 +45,9 @@ public class RNValidationResult {
         }
     }
 
-    var fields: [String: Value] = [:]
+    public var fields: [String: Value] = [:]
 
-    subscript (tag: String) -> Value? {
+    public subscript (tag: String) -> Value? {
         get {
             if fields.contains({k, _ in k == tag}) {
                 return fields[tag]
