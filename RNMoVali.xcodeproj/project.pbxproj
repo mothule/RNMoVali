@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F3A4B6D1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
 		2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */; };
+		2F7CF3051D6E789E000823CF /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF3041D6E789E000823CF /* RegexTests.swift */; };
 		54BCD8D51D6C309300640B5B /* RNMoVali.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCD8D41D6C309300640B5B /* RNMoVali.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54BCD8DC1D6C309300640B5B /* RNMoVali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BCD8D11D6C309300640B5B /* RNMoVali.framework */; };
 		54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2F3A4B6C1D6DA2C600337B34 /* RNConstraintRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintRequired.swift; sourceTree = "<group>"; };
+		2F7CF3041D6E789E000823CF /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8D41D6C309300640B5B /* RNMoVali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
 		54BCD8D61D6C309300640B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F5182D91D6E785000BCC439 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F7CF3041D6E789E000823CF /* RegexTests.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		54BCD8C71D6C309300640B5B = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		54BCD8DF1D6C309300640B5B /* RNMoValiTests */ = {
 			isa = PBXGroup;
 			children = (
+				2F5182D91D6E785000BCC439 /* Utilities */,
 				54F0CA2F1D6E05A9001A5945 /* Constraints */,
 				54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */,
 				54BCD8E21D6C309300640B5B /* Info.plist */,
@@ -267,6 +278,7 @@
 				54F0CA311D6E05D2001A5945 /* RNConstraintLengthTests.swift in Sources */,
 				54F0CA2A1D6DE3D3001A5945 /* RNConstraintRegex.swift in Sources */,
 				54F0CA2E1D6DE5B6001A5945 /* Regex.swift in Sources */,
+				2F7CF3051D6E789E000823CF /* RegexTests.swift in Sources */,
 				2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */,
 				54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,
 				54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */,
