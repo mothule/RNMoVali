@@ -55,8 +55,6 @@ if results.isInvalid {
 
 # Installation and Setup
 
-To be prepared.
-
 Support CocoaPods
 
 ~~~podfile
