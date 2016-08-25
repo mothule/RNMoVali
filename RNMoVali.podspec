@@ -30,7 +30,7 @@ This is a model validator for Swift. It's Simply but good partner.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'RNMoVali/*'
+  s.source_files = 'RNMoVali/*.swift'
   
   # s.resource_bundles = {
   #   'RNMoVali' => ['RNMoVali/Assets/*.png']
