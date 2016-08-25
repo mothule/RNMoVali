@@ -48,6 +48,7 @@
 		2F7CF3041D6E789E000823CF /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		541EDF9C1D6F3B9F005EC311 /* RNConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraint.swift; sourceTree = "<group>"; };
 		541EDFA21D6F48AC005EC311 /* RNConstrainRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstrainRange.swift; sourceTree = "<group>"; };
+		54AAC21A1D6F660500DB82BB /* RNMoVali.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNMoVali.podspec; sourceTree = SOURCE_ROOT; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8D41D6C309300640B5B /* RNMoVali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
 		54BCD8D61D6C309300640B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +141,14 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		54AAC2191D6F65F400DB82BB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				54AAC21A1D6F660500DB82BB /* RNMoVali.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		54BCD8C71D6C309300640B5B = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +170,7 @@
 		54BCD8D31D6C309300640B5B /* RNMoVali */ = {
 			isa = PBXGroup;
 			children = (
+				54AAC2191D6F65F400DB82BB /* Pod */,
 				54F0CA2B1D6DE5A9001A5945 /* Utilities */,
 				54BCD90C1D6C3FB600640B5B /* Constraints */,
 				541EDF991D6F3B0A005EC311 /* Core */,

@@ -16,9 +16,9 @@ public protocol RNConstraintable {
 }
 
 public class RNConstraintResult {
-    var errorMessage: String?
-    var isValid: Bool = true
-    var isInvalid: Bool {
+    public var errorMessage: String?
+    public var isValid: Bool = true
+    public var isInvalid: Bool {
         return !isValid
     }
     func invalidate(errorMessage: String? = nil) {
@@ -39,8 +39,8 @@ public protocol RNValidatable: AnyObject {
 
 public class RNValidationResult {
     public class Value {
-        var messages: [String] = []
-        var isContainsError: Bool {
+        public var messages: [String] = []
+        public var isContainsError: Bool {
             return messages.count > 0
         }
     }
