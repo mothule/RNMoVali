@@ -74,7 +74,7 @@ public class RNConstraintResult {
     var isInvalid: Bool {
         return !isValid
     }
-    func invalidate(errorMessage:String? = nil) {
+    func invalidate(errorMessage: String? = nil) {
         isValid = false
         if errorMessage != nil {
             self.errorMessage = errorMessage
