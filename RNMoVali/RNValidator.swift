@@ -8,54 +8,6 @@
 
 import Foundation
 
-
-public class RNFieldConstraints {
-    let field: Any?
-    let tag: String
-    var constraints: [RNConstraintable] = []
-
-    init(field: Any?, tag: String) {
-        self.field = field
-        self.tag = tag
-    }
-}
-
-/**
-    a method chainable binder for constraints.
- */
-public class RNConstraintBinder {
-
-    private var targetModel: AnyObject
-    private var constraints: Array<RNFieldConstraints> = []
-
-    public init(targetModel: AnyObject) {
-        self.targetModel = targetModel
-    }
-
-    public func bind(field: Any?, accessTag: String) -> RNConstraintAppender {
-        let constraintSet = RNFieldConstraints(field: field, tag:accessTag)
-        let appender: RNConstraintAppender = RNConstraintAppender(owner:constraintSet)
-        constraints.append(constraintSet)
-        return appender
-    }
-}
-
-// 制約加えるクラス.
-// 制約は自分は持たずにコンストラクタ時に受け取ったオーナーに渡す.
-public class RNConstraintAppender {
-
-    private weak var owner: RNFieldConstraints!
-
-    public init(owner: RNFieldConstraints) {
-        self.owner = owner
-    }
-
-    public func addConstraint(constraint: RNConstraintable) -> RNConstraintAppender {
-        owner.constraints.append(constraint)
-        return self
-    }
-}
-
 /**
     Constrain able to protocol for validator
  */
@@ -93,7 +45,7 @@ public class RNValidationResult {
         }
     }
 
-    var fields: Dictionary<String, Value> = Dictionary<String, Value>()
+    var fields: [String: Value] = [:]
 
     subscript (tag: String) -> Value? {
         get {
@@ -135,7 +87,7 @@ public class RNValidator {
 
 
         // ターゲットの制約をバインダーに集約.
-        let binder: RNConstraintBinder = RNConstraintBinder(targetModel: targetModel)
+        let binder:RNConstraintBinder = RNConstraintBinder(targetModel: targetModel)
         targetModel.bindConstraint(binder)
 
         // 全ての制約のチェック.
