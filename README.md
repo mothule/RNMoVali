@@ -38,11 +38,11 @@ parameter is model realized RNValidatable protocol.
 ~~~swift
 let results = RNValidator.sharedInstance.validate(model)
 if results.isInvalid {
-    if let firstNameErrorMessage = results.fields["firstName"] {
-        firstNameMessageLabel.text = firstNameErrorMessage
+    if let firstNameErrorMessages = results.fields["firstName"] {
+        firstNameMessageLabel.text = firstNameErrorMessages.messages.joinWithSeparator("\n")
     }
-    if let lastNameErrorMessage = results.fields["lastName"] {
-        lastNameMessageLabel.text = lastNameErrorMessage
+    if let lastNameErrorMessages = results.fields["lastName"] {
+        lastNameMessageLabel.text = lastNameErrorMessages.messages.joinWithSeparator("\n")
     }
 }
 ~~~
