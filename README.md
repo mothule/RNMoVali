@@ -2,7 +2,7 @@
 This is a model validator for Swift
 
 # Features
-- Not dependency external frameworks.
+- Not dependent on external frameworks.
 - Light weight.
 
 
@@ -63,7 +63,7 @@ pod 'RNMoVali', '~> 1.0'
 
 # Attention
 
-I am Japanese. English does not speak only a little. and write too.
-Often you will find a typo. At that time, close your eyes. And may you send kindness pull-requests.
+I am a Japanese programmer, so I have some trouble writing in English.
+You may find a typo or mistake but just be nice with your feedback.
 
-Thank you for reading to the end.
+Thank you for your support and kindness.
