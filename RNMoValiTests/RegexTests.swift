@@ -30,9 +30,9 @@ class RegexTests: XCTestCase {
         XCTAssertEqual(regexIns.regex.pattern, "pattern")
     }
     func test_make_PatternWithOption__HaveNSRegularExpresison() {
-        let regexIns = Regex.make("pattern", options: .CaseInsensitive)
+        let regexIns = Regex.make("pattern", options: .caseInsensitive)
         XCTAssertEqual(regexIns.regex.pattern, "pattern")
-        XCTAssertEqual(regexIns.regex.options, [.CaseInsensitive])
+        XCTAssertEqual(regexIns.regex.options, [.caseInsensitive])
     }
 
     //MAKR: - isMatch
@@ -57,7 +57,7 @@ class RegexTests: XCTestCase {
     }
 
     func test_isMatch_HaveOptions_Work() {
-        let regexIns = Regex.make("^[a-z]+$", options: .CaseInsensitive)
+        let regexIns = Regex.make("^[a-z]+$", options: .caseInsensitive)
         XCTAssertTrue(regexIns.isMatch("a"))
         XCTAssertTrue(regexIns.isMatch("A"))
     }

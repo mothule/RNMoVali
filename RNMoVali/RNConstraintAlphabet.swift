@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class RNConstraintAlphabet : RNConstraintable {
+open class RNConstraintAlphabet : RNConstraintable {
     
-    private let errorMessage:String
+    fileprivate let errorMessage:String
     
     public init(errorMessage:String){
         self.errorMessage = errorMessage
     }
     
-    public func constrain(object:Any?) -> RNConstraintResult{
+    open func constrain(_ object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
         if let string = object as? String{
             
@@ -24,7 +24,7 @@ public class RNConstraintAlphabet : RNConstraintable {
                 return ret
             }
             
-            if Regex.make("[a-z]+$", options: .CaseInsensitive).isMatch(string) == false {
+            if Regex.make("[a-z]+$", options: .caseInsensitive).isMatch(string) == false {
                 ret.invalidate(errorMessage)
             }
         }

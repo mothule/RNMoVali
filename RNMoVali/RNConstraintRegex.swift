@@ -8,19 +8,19 @@
 
 import Foundation
 
-public class RNConstraintRegex : RNConstraintable
+open class RNConstraintRegex : RNConstraintable
 {
-    private let errorMessage:String
-    private let pattern:String
-    private let options:NSRegularExpressionOptions?
+    fileprivate let errorMessage:String
+    fileprivate let pattern:String
+    fileprivate let options:NSRegularExpression.Options?
     
-    public init(pattern:String, errorMessage:String, options:NSRegularExpressionOptions? = nil){
+    public init(pattern:String, errorMessage:String, options:NSRegularExpression.Options? = nil){
         self.pattern = pattern
         self.errorMessage = errorMessage
         self.options = options
     }
     
-    public func constrain(object: Any?) -> RNConstraintResult {
+    open func constrain(_ object: Any?) -> RNConstraintResult {
         let ret:RNConstraintResult = RNConstraintResult()
         if let string = object as? String {
             if Regex.make(pattern, options: options).isMatch(string) == false {

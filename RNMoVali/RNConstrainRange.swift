@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class RNConstraintRange<T where T:Comparable> : RNConstraintable {
+open class RNConstraintRange<T> : RNConstraintable where T:Comparable {
     
-    private let min:T
-    private let max:T
-    private let errorMessage:String
+    fileprivate let min:T
+    fileprivate let max:T
+    fileprivate let errorMessage:String
     
     public init(min:T, max:T,  errorMessage:String){
         self.min = min
@@ -20,7 +20,7 @@ public class RNConstraintRange<T where T:Comparable> : RNConstraintable {
         self.errorMessage = errorMessage
     }
     
-    public func constrain(object:Any?) -> RNConstraintResult{
+    open func constrain(_ object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
         if let value = object as? T{
             if value < min || value > max {

@@ -20,12 +20,12 @@ class ProfileEntity : RNValidatable {
     }
     
     func bindConstraint(binder: RNConstraintBinder) {
-        binder.bind(firstName, accessTag: "firstName")
-            .addConstraint(RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
-            .addConstraint(RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
-        binder.bind(lastName, accessTag: "lastName")
-            .addConstraint(RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
-            .addConstraint(RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
+        binder.bind(field: firstName, accessTag: "firstName")
+            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
+            .add(constraint: RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
+        binder.bind(field: lastName, accessTag: "lastName")
+            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
+            .add(constraint: RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
     }
 }
 
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
         let results = RNValidator.sharedInstance.validate(model)
         if results.isInvalid {
             if let firstNameErrorMessages = results.fields["firstName"] {
-                firstNameMessageLabel.text = firstNameErrorMessages.messages.joinWithSeparator("\n")
+                firstNameMessageLabel.text = firstNameErrorMessages.messages.joined(separator: "\n")
             }
             if let lastNameErrorMessages = results.fields["lastName"] {
-                lastNameMessageLabel.text = lastNameErrorMessages.messages.joinWithSeparator("\n")
+                lastNameMessageLabel.text = lastNameErrorMessages.messages.joined(separator: "\n")
             }
         }
         
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         lastNameMessageLabel.text = nil
     }
     
-    @IBAction func onTouchedRegisterButton(sender: UIButton) {
+    @IBAction func onTouchedRegisterButton(_ sender: UIButton) {
         validateName()
     }
     

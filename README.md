@@ -22,11 +22,11 @@ class ProfileEntity : RNValidatable {
 
     func bindConstraint(binder: RNConstraintBinder) {
         binder.bind(firstName, accessTag: "firstName")
-            .addConstraint(RNConstraintLength(max: 10, errorMessage: "Invalid range"))
-            .addConstraint(RNConstraintAlphabet(errorMessage: "Only alphabets."))
+            .add(constraint:RNConstraintLength(max: 10, errorMessage: "Invalid range"))
+            .add(constraint:RNConstraintAlphabet(errorMessage: "Only alphabets."))
         binder.bind(lastName, accessTag: "lastName")
-            .addConstraint(RNConstraintLength(max: 10, errorMessage: "Invalid range"))
-            .addConstraint(RNConstraintAlphabet(errorMessage: "Only alphabets."))
+            .add(constraint:RNConstraintLength(max: 10, errorMessage: "Invalid range"))
+            .add(constraint:RNConstraintAlphabet(errorMessage: "Only alphabets."))
     }
 }
 ~~~
@@ -39,10 +39,10 @@ parameter is model realized RNValidatable protocol.
 let results = RNValidator.sharedInstance.validate(model)
 if results.isInvalid {
     if let firstNameErrorMessages = results.fields["firstName"] {
-        firstNameMessageLabel.text = firstNameErrorMessages.messages.joinWithSeparator("\n")
+        firstNameMessageLabel.text = firstNameErrorMessages.messages.joined(separator:"\n")
     }
     if let lastNameErrorMessages = results.fields["lastName"] {
-        lastNameMessageLabel.text = lastNameErrorMessages.messages.joinWithSeparator("\n")
+        lastNameMessageLabel.text = lastNameErrorMessages.messages.join(separator:"\n")
     }
 }
 ~~~
@@ -50,15 +50,15 @@ if results.isInvalid {
 
 # Runtime Requirements
 
-- iOS 9.3
-- Swift 2.2
+- iOS 10 later
+- Swift 3.0 later
 
 # Installation and Setup
 
 Support CocoaPods
 
 ~~~podfile
-pod 'RNMoVali', '~> 1.0'
+pod 'RNMoVali', '~> 2.0'
 ~~~
 
 # Attention

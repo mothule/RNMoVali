@@ -11,7 +11,7 @@ import Foundation
 
 // Container class.
 // It present a relation of Field and Constraints.
-public class RNFieldConstraints {
+open class RNFieldConstraints {
     let field: Any?
     let tag: String
     var constraints: [RNConstraintable] = []
@@ -23,15 +23,15 @@ public class RNFieldConstraints {
 }
 
 // A Binder class to bind constraints to field.
-public class RNConstraintBinder {
-    private var targetModel: AnyObject
+open class RNConstraintBinder {
+    fileprivate var targetModel: AnyObject
     internal var constraints: [RNFieldConstraints] = []
     
     public init(targetModel: AnyObject) {
         self.targetModel = targetModel
     }
     
-    public func bind(field: Any?, accessTag: String) -> RNConstraintAppender {
+    open func bind(field: Any?, accessTag: String) -> RNConstraintAppender {
         let fieldConstraints = RNFieldConstraints(field: field, tag:accessTag)
         let appender = RNConstraintAppender(owner:fieldConstraints)
         constraints.append(fieldConstraints)
@@ -42,15 +42,15 @@ public class RNConstraintBinder {
 // 制約加えるクラス.
 // 制約は自分は持たずにコンストラクタ時に受け取ったオーナーに渡す.
 // It will Append constraint to owner.
-public class RNConstraintAppender {
+open class RNConstraintAppender {
     
-    private weak var owner: RNFieldConstraints!
+    fileprivate weak var owner: RNFieldConstraints!
     
-    private init(owner: RNFieldConstraints) {
+    fileprivate init(owner: RNFieldConstraints) {
         self.owner = owner
     }
     
-    public func addConstraint(constraint: RNConstraintable) -> RNConstraintAppender {
+    open func add(constraint: RNConstraintable) -> RNConstraintAppender {
         owner.constraints.append(constraint)
         return self
     }

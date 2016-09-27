@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class RNConstraintRequired: RNConstraintable {
+open class RNConstraintRequired: RNConstraintable {
 
-    private let errorMessage: String
+    fileprivate let errorMessage: String
 
     public init(errorMessage: String) {
         self.errorMessage = errorMessage
     }
 
-    public func constrain(object: Any?) -> RNConstraintResult {
+    open func constrain(_ object: Any?) -> RNConstraintResult {
         let ret = RNConstraintResult()
         if object == nil {
             ret.invalidate(errorMessage)
