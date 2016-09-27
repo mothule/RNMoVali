@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class RNConstraintLength : RNConstraintable {
+open class RNConstraintLength : RNConstraintable {
     
-    private let min:Int
-    private let max:Int
-    private let errorMessage:String
+    fileprivate let min:Int
+    fileprivate let max:Int
+    fileprivate let errorMessage:String
     
     public init(min:Int, max:Int,  errorMessage:String){
         self.min = min
@@ -25,7 +25,7 @@ public class RNConstraintLength : RNConstraintable {
         self.errorMessage = errorMessage
     }
     
-    public func constrain(object:Any?) -> RNConstraintResult{
+    open func constrain(_ object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
         if let string = object as? String{
             if string.characters.count < min || string.characters.count > max {

@@ -12,16 +12,16 @@ import Foundation
     Constrain able to protocol for validator
  */
 public protocol RNConstraintable {
-    func constrain(object: Any?) -> RNConstraintResult
+    func constrain(_ object: Any?) -> RNConstraintResult
 }
 
-public class RNConstraintResult {
-    public var errorMessage: String?
-    public var isValid: Bool = true
-    public var isInvalid: Bool {
+open class RNConstraintResult {
+    open var errorMessage: String?
+    open var isValid: Bool = true
+    open var isInvalid: Bool {
         return !isValid
     }
-    func invalidate(errorMessage: String? = nil) {
+    func invalidate(_ errorMessage: String? = nil) {
         isValid = false
         if errorMessage != nil {
             self.errorMessage = errorMessage
@@ -37,33 +37,33 @@ public protocol RNValidatable: AnyObject {
 }
 
 
-public class RNValidationResult {
-    public class Value {
-        public var messages: [String] = []
-        public var isContainsError: Bool {
+open class RNValidationResult {
+    open class Value {
+        open var messages: [String] = []
+        open var isContainsError: Bool {
             return messages.count > 0
         }
     }
 
-    public var fields: [String: Value] = [:]
+    open var fields: [String: Value] = [:]
 
-    public subscript (tag: String) -> Value? {
+    open subscript (tag: String) -> Value? {
         get {
-            if fields.contains({k, _ in k == tag}) {
+            if fields.contains(where: {k, _ in k == tag}) {
                 return fields[tag]
             }
             return nil
         }
     }
 
-    public var isValid: Bool {
+    open var isValid: Bool {
         return fields.count <= 0
     }
-    public var isInvalid: Bool { return !isValid }
+    open var isInvalid: Bool { return !isValid }
 
-    private func append(tag: String, message: String) {
+    fileprivate func append(_ tag: String, message: String) {
         let v: Value
-        if fields.contains({k, _ in k == tag}) {
+        if fields.contains(where: {k, _ in k == tag}) {
             v = fields[tag]!
         } else {
            v = Value()
@@ -76,19 +76,19 @@ public class RNValidationResult {
 /**
     Entry instance.
  */
-public class RNValidator {
+open class RNValidator {
     // Singleton instance.
-    public static let sharedInstance: RNValidator = RNValidator()
-    private init() {
+    open static let sharedInstance: RNValidator = RNValidator()
+    fileprivate init() {
     }
 
-    public func validate(targetModel: RNValidatable) -> RNValidationResult {
+    open func validate(_ targetModel: RNValidatable) -> RNValidationResult {
         let results: RNValidationResult = RNValidationResult()
 
 
         // ターゲットの制約をバインダーに集約.
         let binder:RNConstraintBinder = RNConstraintBinder(targetModel: targetModel)
-        targetModel.bindConstraint(binder)
+        targetModel.bindConstraint(binder: binder)
 
         // 全ての制約のチェック.
         // 全て実行して失敗のみを格納する.

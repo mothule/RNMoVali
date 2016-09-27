@@ -14,10 +14,10 @@ import Foundation
 // Regular Expression Entry.
 class Regex
 {
-    class func make(pattern:String, options:NSRegularExpressionOptions? = nil) -> RegexInstance
+    class func make(_ pattern:String, options:NSRegularExpression.Options? = nil) -> RegexInstance
     {
         let regex: NSRegularExpression
-        let opts:NSRegularExpressionOptions = options != nil ? options! : []
+        let opts:NSRegularExpression.Options = options != nil ? options! : []
         regex = try! NSRegularExpression(pattern: pattern, options: opts)
         return RegexInstance(regex: regex)
     }
@@ -31,8 +31,8 @@ class RegexInstance
     }
     
     // Is matching condition
-    func isMatch(string:String) -> Bool {
-        let ret:[NSTextCheckingResult] = regex.matchesInString(string, options: .ReportCompletion, range: NSMakeRange(0, string.characters.count))
+    func isMatch(_ string:String) -> Bool {
+        let ret:[NSTextCheckingResult] = regex.matches(in: string, options: .reportCompletion, range: NSMakeRange(0, string.characters.count))
         return ret.count > 0
     }
 }

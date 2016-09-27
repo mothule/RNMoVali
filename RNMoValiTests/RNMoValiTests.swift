@@ -16,9 +16,9 @@ class RNMoValiTests: XCTestCase {
         var age: Int = 0
 
         func bindConstraint(binder: RNConstraintBinder) {
-            binder.bind(name, accessTag:"name")
-                .addConstraint(RNConstraintLength(max:10, errorMessage:"character length is 10"))
-                .addConstraint(RNConstraintNumeric(errorMessage:"only numeric"))
+            binder.bind(field: name, accessTag:"name")
+                .add( constraint: RNConstraintLength(max:10, errorMessage:"character length is 10"))
+                .add(constraint: RNConstraintNumeric(errorMessage:"only numeric"))
         }
     }
 
@@ -30,9 +30,9 @@ class RNMoValiTests: XCTestCase {
         var gender: Int?
 
         func bindConstraint(binder: RNConstraintBinder) {
-            binder.bind(name, accessTag: "name")
-            .addConstraint(RNConstraintRequired(errorMessage: Profile.NameRequiredErrorMessage))
-                .addConstraint(RNConstraintLength(min:1, max: 20, errorMessage: Profile.NameLengthErrorMessage))
+            binder.bind(field: name, accessTag: "name")
+            .add(constraint: RNConstraintRequired(errorMessage: Profile.NameRequiredErrorMessage))
+                .add(constraint: RNConstraintLength(min:1, max: 20, errorMessage: Profile.NameLengthErrorMessage))
         }
     }
 
@@ -77,14 +77,14 @@ class RNMoValiTests: XCTestCase {
             var value:Int = 0
             var areaCode:Int = 0
             
-            private func bindConstraint(binder: RNConstraintBinder) {
-                binder.bind(name, accessTag: "name")
-                    .addConstraint(RNConstraintRequired(errorMessage: "It must have a name."))
-                    .addConstraint(RNConstraintLength(max: 10, errorMessage: "10 characters or less"))
-                binder.bind(value, accessTag: "value")
-                    .addConstraint(RNConstraintRange<Int>(min: 0, max: 10000, errorMessage: "It is 0 to 10000"))
-                binder.bind(areaCode, accessTag: "areaCode")
-                    .addConstraint(RNConstraintRange<Int>(min: 0, max: 10, errorMessage: "It is 0 to 10"))
+            fileprivate func bindConstraint( binder: RNConstraintBinder) {
+                binder.bind(field: name, accessTag: "name")
+                    .add( constraint: RNConstraintRequired(errorMessage: "It must have a name."))
+                    .add(constraint: RNConstraintLength(max: 10, errorMessage: "10 characters or less"))
+                binder.bind(field: value, accessTag: "value")
+                    .add(constraint: RNConstraintRange<Int>(min: 0, max: 10000, errorMessage: "It is 0 to 10000"))
+                binder.bind(field: areaCode, accessTag: "areaCode")
+                    .add(constraint: RNConstraintRange<Int>(min: 0, max: 10, errorMessage: "It is 0 to 10"))
             }
         }
         

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RNMoVali'
-  s.version          = '1.0.4'
+  s.version          = '2.0.0'
   s.summary          = 'The RNMoVali is a model validator for Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ This is a model validator for Swift. It's Simply but good partner.
   s.source           = { :git => 'https://github.com/mothule/RNMoVali.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/mothule'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'RNMoVali/*.swift'
   
