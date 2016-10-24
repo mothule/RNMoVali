@@ -28,22 +28,22 @@ class RNConstraintLengthTests: XCTestCase {
     func test_constrain_SetNil_ReturnDefault(){
         let target:RNConstraintLength = RNConstraintLength(max: 25, errorMessage: "Error")
         let ret:RNConstraintResult = target.constrain(nil)
-        XCTAssertEqual(ret.isValid, true)
+        ret.isValid.is(true)
     }
     
     // 引数にString以外の場合は、バリデーションエラーにならない。
     func test_constrain_SetNonString_ReturnDefault(){
         let target:RNConstraintLength = RNConstraintLength(max: 25, errorMessage: "Error")
-        XCTAssertEqual(target.constrain(0).isValid, true)
-        XCTAssertEqual(target.constrain(0.0).isValid, true)
-        XCTAssertEqual(target.constrain(Hoge()).isValid, true)
+        target.constrain(0).isValid.is(true)
+        target.constrain(0.0).isValid.is(true)
+        target.constrain(Hoge()).isValid.is(true)
     }
     
     // 引数にStringの場合は、バリデーションエラーにならない。
     func test_constrain_SetNotOptionString_ReturnDefault(){
         let target:RNConstraintLength = RNConstraintLength(max: 25, errorMessage: "Error")
         let ret:RNConstraintResult = target.constrain("hoge")
-        XCTAssertEqual(ret.isValid, true)
+        ret.isValid.is(true)
     }
     
     // 引数にString?の場合は、バリデーションエラーにならない。
@@ -51,7 +51,7 @@ class RNConstraintLengthTests: XCTestCase {
         let target:RNConstraintLength = RNConstraintLength(max: 25, errorMessage: "Error")
         let hoge:String? = "hoge"
         let ret:RNConstraintResult = target.constrain(hoge)
-        XCTAssertEqual(ret.isValid, true)
+        ret.isValid.is(true)
     }
     
     // バリデーションエラー時は、エラーメッセージを返すべき。
@@ -59,8 +59,8 @@ class RNConstraintLengthTests: XCTestCase {
         let target:RNConstraintLength = RNConstraintLength(max: 1, errorMessage: "Error")
         let hoge:String? = "012345678"
         let ret:RNConstraintResult = target.constrain(hoge)
-        XCTAssertEqual(ret.isValid, false)
-        XCTAssertEqual(ret.errorMessage!, "Error")
+        ret.isValid.is(false)
+        ret.errorMessage!.is("Error")
     }
     
     // 文字数がmin未満の場合は、バリデーションエラーとなるべし
@@ -68,7 +68,7 @@ class RNConstraintLengthTests: XCTestCase {
         let target:RNConstraintLength = RNConstraintLength(min:10, max: 25, errorMessage: "Error")
         let hoge:String? = "012345678"
         let ret:RNConstraintResult = target.constrain(hoge)
-        XCTAssertEqual(ret.isValid, false)
+        ret.isValid.is(false)
     }
 
     // 文字数がmax超えの場合は、バリデーションエラーとなるべし
@@ -76,6 +76,6 @@ class RNConstraintLengthTests: XCTestCase {
         let target:RNConstraintLength = RNConstraintLength(max: 5, errorMessage: "Error")
         let hoge:String? = "0123456"
         let ret:RNConstraintResult = target.constrain(hoge)
-        XCTAssertEqual(ret.isValid, false)
+        ret.isValid.is(false)
     }
 }

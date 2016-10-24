@@ -15,6 +15,8 @@
 		541EDF9E1D6F3D85005EC311 /* RNConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDF9C1D6F3B9F005EC311 /* RNConstraint.swift */; };
 		541EDFA31D6F48AC005EC311 /* RNConstrainRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFA21D6F48AC005EC311 /* RNConstrainRange.swift */; };
 		541EDFA41D6F48C4005EC311 /* RNConstrainRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFA21D6F48AC005EC311 /* RNConstrainRange.swift */; };
+		5424FEC21DBE506700B1E264 /* Expressible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424FEC11DBE506700B1E264 /* Expressible.swift */; };
+		5424FEC41DBE574900B1E264 /* DmyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424FEC31DBE574900B1E264 /* DmyUtils.swift */; };
 		54BCD8D51D6C309300640B5B /* RNMoVali.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCD8D41D6C309300640B5B /* RNMoVali.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54BCD8DC1D6C309300640B5B /* RNMoVali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BCD8D11D6C309300640B5B /* RNMoVali.framework */; };
 		54BCD8E11D6C309300640B5B /* RNMoValiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */; };
@@ -48,6 +50,8 @@
 		2F7CF3041D6E789E000823CF /* RegexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		541EDF9C1D6F3B9F005EC311 /* RNConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraint.swift; sourceTree = "<group>"; };
 		541EDFA21D6F48AC005EC311 /* RNConstrainRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstrainRange.swift; sourceTree = "<group>"; };
+		5424FEC11DBE506700B1E264 /* Expressible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expressible.swift; sourceTree = "<group>"; };
+		5424FEC31DBE574900B1E264 /* DmyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DmyUtils.swift; sourceTree = "<group>"; };
 		54AAC21A1D6F660500DB82BB /* RNMoVali.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNMoVali.podspec; sourceTree = SOURCE_ROOT; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8D41D6C309300640B5B /* RNMoVali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
@@ -141,6 +145,15 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		5424FEC01DBE505400B1E264 /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5424FEC11DBE506700B1E264 /* Expressible.swift */,
+				5424FEC31DBE574900B1E264 /* DmyUtils.swift */,
+			);
+			name = TestUtils;
+			sourceTree = "<group>";
+		};
 		54AAC2191D6F65F400DB82BB /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		54BCD8DF1D6C309300640B5B /* RNMoValiTests */ = {
 			isa = PBXGroup;
 			children = (
+				5424FEC01DBE505400B1E264 /* TestUtils */,
 				2F5182D91D6E785000BCC439 /* Utilities */,
 				54F0CA2F1D6E05A9001A5945 /* Constraints */,
 				541EDFA11D6F4084005EC311 /* Core */,
@@ -346,12 +360,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5424FEC41DBE574900B1E264 /* DmyUtils.swift in Sources */,
 				54BCD9151D6C798700640B5B /* RNConstraintNumeric.swift in Sources */,
 				54BCD90B1D6C31FD00640B5B /* RNValidator.swift in Sources */,
 				541EDF9E1D6F3D85005EC311 /* RNConstraint.swift in Sources */,
 				54F0CA311D6E05D2001A5945 /* RNConstraintLengthTests.swift in Sources */,
 				54F0CA2A1D6DE3D3001A5945 /* RNConstraintRegex.swift in Sources */,
 				54F0CA2E1D6DE5B6001A5945 /* Regex.swift in Sources */,
+				5424FEC21DBE506700B1E264 /* Expressible.swift in Sources */,
 				2F7CF3051D6E789E000823CF /* RegexTests.swift in Sources */,
 				2F3A4B6E1D6DA2C600337B34 /* RNConstraintRequired.swift in Sources */,
 				54BCD90F1D6C3FE900640B5B /* RNConstraintLength.swift in Sources */,

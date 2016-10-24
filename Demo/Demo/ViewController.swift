@@ -20,12 +20,12 @@ class ProfileEntity : RNValidatable {
     }
     
     func bindConstraint(binder: RNConstraintBinder) {
-        binder.bind(field: firstName, accessTag: "firstName")
-            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
-            .add(constraint: RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
-        binder.bind(field: lastName, accessTag: "lastName")
-            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "名前は1文字以上, 10文字以下にしてください."))
-            .add(constraint: RNConstraintAlphabet(errorMessage: "半角英字以外は入力しないでください."))
+        _ = binder.bind(field: firstName, accessTag: "firstName")
+            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "Name's length should be 1 <= Name <= 10."))
+            .add(constraint: RNConstraintAlphabet(errorMessage: "Can input only alphabets."))
+        _ = binder.bind(field: lastName, accessTag: "lastName")
+            .add(constraint: RNConstraintLength(min: 1, max: 10, errorMessage: "Name's length should be 1 <= Name <= 10."))
+            .add(constraint: RNConstraintAlphabet(errorMessage: "Can input only alphabets."))
     }
 }
 
@@ -41,25 +41,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        validateName()
+        clearMessageLabel()
     }
     
     private func validateName(){
-        
         updateModelFromUI()
         clearMessageLabel()
         
-        let results = RNValidator.sharedInstance.validate(model)
+        let results = model.rn.validate()
         if results.isInvalid {
             if let firstNameErrorMessages = results.fields["firstName"] {
-                firstNameMessageLabel.text = firstNameErrorMessages.messages.joined(separator: "\n")
+                self.firstNameMessageLabel.text = firstNameErrorMessages.messages.joined(separator: "\n")
             }
             if let lastNameErrorMessages = results.fields["lastName"] {
-                lastNameMessageLabel.text = lastNameErrorMessages.messages.joined(separator: "\n")
+                self.lastNameMessageLabel.text = lastNameErrorMessages.messages.joined(separator: "\n")
             }
         }
-        
     }
+    
     private func updateModelFromUI(){
         model.firstName = firstNameTextField.text!
         model.lastName = lastNameTextField.text!

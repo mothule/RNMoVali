@@ -11,17 +11,26 @@ import XCTest
 
 class RNMoValiTests: XCTestCase {
 
+    /**
+     Mock class 1.
+     */
     class TestEntity: RNValidatable {
+        static let NameLengthErrorMessage = "character length is 10"
+        static let NameOnlyNumericErrorMessage = "only numeric"
+        
         var name: String = ""
         var age: Int = 0
 
         func bindConstraint(binder: RNConstraintBinder) {
-            binder.bind(field: name, accessTag:"name")
-                .add( constraint: RNConstraintLength(max:10, errorMessage:"character length is 10"))
-                .add(constraint: RNConstraintNumeric(errorMessage:"only numeric"))
+            _ = binder.bind(field: name, accessTag:"name")
+                .add( constraint: RNConstraintLength(max:10, errorMessage:TestEntity.NameLengthErrorMessage))
+                .add(constraint: RNConstraintNumeric(errorMessage: TestEntity.NameOnlyNumericErrorMessage))
         }
     }
 
+    /**
+     Mock class 2.
+    */
     class Profile: RNValidatable {
         static let NameRequiredErrorMessage = "Input the name."
         static let NameLengthErrorMessage = "The name Try to 20 characters or less"
@@ -30,92 +39,102 @@ class RNMoValiTests: XCTestCase {
         var gender: Int?
 
         func bindConstraint(binder: RNConstraintBinder) {
-            binder.bind(field: name, accessTag: "name")
-            .add(constraint: RNConstraintRequired(errorMessage: Profile.NameRequiredErrorMessage))
+            _ = binder.bind(field: name, accessTag: "name")
+                .add(constraint: RNConstraintRequired(errorMessage: Profile.NameRequiredErrorMessage))
                 .add(constraint: RNConstraintLength(min:1, max: 20, errorMessage: Profile.NameLengthErrorMessage))
         }
     }
+    
+    /**
+    Mock class 3
+    */
+    class MixedClass : RNValidatable {
+        var name:String?
+        var value:Int = 0
+        var areaCode:Int = 0
+        
+        func bindConstraint( binder: RNConstraintBinder) {
+            _ = binder.bind(field: name, accessTag: "name")
+                .add( constraint: RNConstraintRequired(errorMessage: "It must have a name."))
+                .add(constraint: RNConstraintLength(max: 10, errorMessage: "10 characters or less"))
+            
+            _ = binder.bind(field: value, accessTag: "value")
+                .add(constraint: RNConstraintRange<Int>(min: 0, max: 10000, errorMessage: "It is 0 to 10000"))
+            
+            _ = binder.bind(field: areaCode, accessTag: "areaCode")
+                .add(constraint: RNConstraintRange<Int>(min: 0, max: 10, errorMessage: "It is 0 to 10"))
+        }
+    }
+    
+    
 
     // 正常系
     // Model内にOption型フィールドが含まれていても正常動作すること.
     func test__Usecase_OptionalFields_Work() {
         let target = Profile()
-        let ret: RNValidationResult = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid, false)
-
+        
+        let ret = target.rn.validate()
+        ret.isValid.is(false)
         let nameResult = ret.fields["name"]
-        XCTAssertEqual(nameResult?.isContainsError, true)
-        XCTAssertEqual(nameResult?.messages[0], Profile.NameRequiredErrorMessage)
+        nameResult?.isContainsError.is(true)
+        nameResult?.messages[0].is(Profile.NameRequiredErrorMessage)
     }
 
     // 正常系
     // Model内にOption型フィールドが含まれていなくても、正常動作すること.
     func test__Usecase_NotOptionalFields_Work() {
         let target = TestEntity()
+        var ret:RNValidationResult
 
-        target.name = "0123456789"
-        var ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid, true)
-        XCTAssertEqual(ret.fields.count, 0)
+        target.name = "0" * 10
+        ret = target.rn.validate()
+        ret.isValid.is(true)
+        ret.fields.count.is(0)
 
-        target.name = "01234567890"
-        ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid, false)
-        XCTAssertEqual(ret.fields["name"]?.messages[0], "character length is 10")
+        target.name = "0" * 11
+        ret = target.rn.validate()
+        ret.isValid.is(false)
+        ret.fields["name"]?.messages[0].is(TestEntity.NameLengthErrorMessage)
 
-        target.name = "012345678a"
-        ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid, false)
-        XCTAssertEqual(ret.fields["name"]?.messages[0], "only numeric")
+        target.name = "0" * 9 + "a"
+        ret = target.rn.validate()
+        ret.isValid.is(false)
+        ret.fields["name"]?.messages[0].is( TestEntity.NameOnlyNumericErrorMessage )
     }
     
+    // 正常系
     // Model内にOption型と非Option型のフィールドが混じってても、正常動作すること.
     func test__Usecase_MixNotOptionalAndOptionalFields_Work()
     {
-        class MixedClass : RNValidatable {
-            var name:String?
-            var value:Int = 0
-            var areaCode:Int = 0
-            
-            fileprivate func bindConstraint( binder: RNConstraintBinder) {
-                binder.bind(field: name, accessTag: "name")
-                    .add( constraint: RNConstraintRequired(errorMessage: "It must have a name."))
-                    .add(constraint: RNConstraintLength(max: 10, errorMessage: "10 characters or less"))
-                binder.bind(field: value, accessTag: "value")
-                    .add(constraint: RNConstraintRange<Int>(min: 0, max: 10000, errorMessage: "It is 0 to 10000"))
-                binder.bind(field: areaCode, accessTag: "areaCode")
-                    .add(constraint: RNConstraintRange<Int>(min: 0, max: 10, errorMessage: "It is 0 to 10"))
-            }
-        }
-        
-        // invalid required constraint
         let target = MixedClass()
-        var ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid,false)
-        XCTAssertEqual(ret.fields.count, 1)
-        XCTAssertEqual(ret.fields["name"]?.messages.count, 1)
-        XCTAssertEqual(ret.fields["name"]?.messages[0], "It must have a name.")
+        var ret:RNValidationResult
+
+        // invalid required constraint
+        ret = target.rn.validate()
+        ret.isValid.is(false)
+        ret.fields.count.is(1)
+        ret.fields["name"]?.messages.count.is(1)
+        ret.fields["name"]?.messages[0].is("It must have a name.")
         
         // valid
         target.name = "monkey"
         target.value = 1
-        ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid,true)
-        XCTAssertEqual(ret.fields.count, 0)
+        ret = target.rn.validate()
+        ret.isValid.is(true)
+        ret.fields.count.is(0)
         
         // invalid over character length and invalid value over range
-        target.name = "monkeymonkeymonkeymonkeymonkeymonkeymonkeymonkey"
+        target.name = "monkey" * 8
         target.value = -1
         target.areaCode = 11
-        ret = RNValidator.sharedInstance.validate(target)
-        XCTAssertEqual(ret.isValid,false)
-        XCTAssertEqual(ret.fields.count, 3)
-        XCTAssertEqual(ret.fields["name"]?.messages.count,1)
-        XCTAssertEqual(ret.fields["name"]?.messages[0], "10 characters or less")
-        XCTAssertEqual(ret.fields["value"]?.messages.count,1)
-        XCTAssertEqual(ret.fields["value"]?.messages[0], "It is 0 to 10000")
-        XCTAssertEqual(ret.fields["areaCode"]?.messages.count,1)
-        XCTAssertEqual(ret.fields["areaCode"]?.messages[0], "It is 0 to 10")
+        ret = target.rn.validate()
+        ret.isValid.is(false)
+        ret.fields.count.is(3)
+        ret.fields["name"]?.messages.count.is(1)
+        ret.fields["name"]?.messages[0].is("10 characters or less")
+        ret.fields["value"]?.messages.count.is(1)
+        ret.fields["value"]?.messages[0].is("It is 0 to 10000")
+        ret.fields["areaCode"]?.messages.count.is(1)
+        ret.fields["areaCode"]?.messages[0].is("It is 0 to 10")
     }
-
 }

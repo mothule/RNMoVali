@@ -18,15 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wq-0b-Ipd">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="WjH-xI-Iuj"/>
-                                </constraints>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <action selector="onTouchedRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F21-BN-w4r"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-GI-8Hx">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="209" id="XVW-2q-SiA"/>
@@ -46,7 +37,7 @@
                                     <constraint firstAttribute="width" constant="209" id="dCV-7E-7HH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.086274512112140656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -59,7 +50,7 @@
                                     <constraint firstAttribute="width" constant="209" id="zLZ-oy-6Tj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.086274512112140656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -67,10 +58,19 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wq-0b-Ipd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="WjH-xI-Iuj"/>
+                                </constraints>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="onTouchedRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F21-BN-w4r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pyO-GI-8Hx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="137" id="43q-qz-AzL"/>
+                            <constraint firstItem="pyO-GI-8Hx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="43q-qz-AzL"/>
                             <constraint firstItem="pyO-GI-8Hx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9aZ-pr-QoS"/>
                             <constraint firstItem="Xf3-sI-6k5" firstAttribute="top" secondItem="qKG-ps-MNl" secondAttribute="bottom" constant="3" id="Irp-wT-vRs"/>
                             <constraint firstItem="4wq-0b-Ipd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QDS-6Y-Lnh"/>
@@ -78,7 +78,7 @@
                             <constraint firstItem="bUu-pI-kMj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c9z-M0-Z2C"/>
                             <constraint firstItem="qKG-ps-MNl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jGa-2b-9JP"/>
                             <constraint firstItem="qKG-ps-MNl" firstAttribute="top" secondItem="bUu-pI-kMj" secondAttribute="bottom" constant="24" id="nRa-us-aI6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4wq-0b-Ipd" secondAttribute="bottom" constant="208" id="oxq-yE-oe7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4wq-0b-Ipd" secondAttribute="bottom" constant="403" id="oxq-yE-oe7"/>
                             <constraint firstItem="Xf3-sI-6k5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qoc-z6-QeQ"/>
                         </constraints>
                     </view>
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="477"/>
+            <point key="canvasLocation" x="-164" y="419"/>
         </scene>
     </scenes>
 </document>

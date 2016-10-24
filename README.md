@@ -36,7 +36,7 @@ RNValidator call validate method.
 parameter is model realized RNValidatable protocol.
 
 ~~~swift
-let results = RNValidator.sharedInstance.validate(model)
+let results = model.rn.validate()
 if results.isInvalid {
     if let firstNameErrorMessages = results.fields["firstName"] {
         firstNameMessageLabel.text = firstNameErrorMessages.messages.joined(separator:"\n")

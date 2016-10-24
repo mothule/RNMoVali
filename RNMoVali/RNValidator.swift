@@ -36,6 +36,27 @@ public protocol RNValidatable: AnyObject {
     func bindConstraint(binder: RNConstraintBinder)
 }
 
+/**
+    Validatable extension.
+ */
+public extension RNValidatable {
+    public var rn:RNValidationProvider{ get{ return RNValidationProvider(validatable: self) } }
+}
+
+/**
+    Validation provider for validatable.
+    @warn do not keep it scope out. it have unowned var.
+ */
+public struct RNValidationProvider {
+    private unowned var validatable:RNValidatable
+    public init(validatable:RNValidatable){
+        self.validatable = validatable
+    }
+    public func validate() -> RNValidationResult {
+        return RNValidator.shared.validate(validatable)
+    }
+}
+
 
 open class RNValidationResult {
     open class Value {
@@ -78,7 +99,7 @@ open class RNValidationResult {
  */
 open class RNValidator {
     // Singleton instance.
-    open static let sharedInstance: RNValidator = RNValidator()
+    open static let shared: RNValidator = RNValidator()
     fileprivate init() {
     }
 
