@@ -52,7 +52,6 @@
 		541EDFA21D6F48AC005EC311 /* RNConstrainRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstrainRange.swift; sourceTree = "<group>"; };
 		5424FEC11DBE506700B1E264 /* Expressible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expressible.swift; sourceTree = "<group>"; };
 		5424FEC31DBE574900B1E264 /* DmyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DmyUtils.swift; sourceTree = "<group>"; };
-		54AAC21A1D6F660500DB82BB /* RNMoVali.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNMoVali.podspec; sourceTree = SOURCE_ROOT; };
 		54BCD8D11D6C309300640B5B /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8D41D6C309300640B5B /* RNMoVali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
 		54BCD8D61D6C309300640B5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,26 +97,10 @@
 		541EDF991D6F3B0A005EC311 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				541EDF9A1D6F3B4D005EC311 /* Constraint */,
-				541EDF9B1D6F3B56005EC311 /* Validation */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		541EDF9A1D6F3B4D005EC311 /* Constraint */ = {
-			isa = PBXGroup;
-			children = (
 				541EDF9C1D6F3B9F005EC311 /* RNConstraint.swift */,
-			);
-			name = Constraint;
-			sourceTree = "<group>";
-		};
-		541EDF9B1D6F3B56005EC311 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
 				54BCD9091D6C31FD00640B5B /* RNValidator.swift */,
 			);
-			name = Validation;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		541EDF9F1D6F4071005EC311 /* Constraint */ = {
@@ -154,19 +137,21 @@
 			name = TestUtils;
 			sourceTree = "<group>";
 		};
-		54AAC2191D6F65F400DB82BB /* Pod */ = {
+		548953541DBFB0AF00C8D800 /* Supporting Fiels */ = {
 			isa = PBXGroup;
 			children = (
-				54AAC21A1D6F660500DB82BB /* RNMoVali.podspec */,
+				54BCD8D61D6C309300640B5B /* Info.plist */,
 			);
-			name = Pod;
+			name = "Supporting Fiels";
+			path = RNMoVali;
 			sourceTree = "<group>";
 		};
 		54BCD8C71D6C309300640B5B = {
 			isa = PBXGroup;
 			children = (
-				54BCD8D31D6C309300640B5B /* RNMoVali */,
-				54BCD8DF1D6C309300640B5B /* RNMoValiTests */,
+				54BCD8D31D6C309300640B5B /* Sources */,
+				548953541DBFB0AF00C8D800 /* Supporting Fiels */,
+				54BCD8DF1D6C309300640B5B /* Tests */,
 				54BCD8D21D6C309300640B5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,20 +165,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54BCD8D31D6C309300640B5B /* RNMoVali */ = {
+		54BCD8D31D6C309300640B5B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				54AAC2191D6F65F400DB82BB /* Pod */,
-				54F0CA2B1D6DE5A9001A5945 /* Utilities */,
-				54BCD90C1D6C3FB600640B5B /* Constraints */,
-				541EDF991D6F3B0A005EC311 /* Core */,
 				54BCD8D41D6C309300640B5B /* RNMoVali.h */,
-				54BCD8D61D6C309300640B5B /* Info.plist */,
+				541EDF991D6F3B0A005EC311 /* Core */,
+				54BCD90C1D6C3FB600640B5B /* Constraints */,
+				54F0CA2B1D6DE5A9001A5945 /* Utilities */,
 			);
+			name = Sources;
 			path = RNMoVali;
 			sourceTree = "<group>";
 		};
-		54BCD8DF1D6C309300640B5B /* RNMoValiTests */ = {
+		54BCD8DF1D6C309300640B5B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				5424FEC01DBE505400B1E264 /* TestUtils */,
@@ -202,6 +186,7 @@
 				541EDFA11D6F4084005EC311 /* Core */,
 				54BCD8E21D6C309300640B5B /* Info.plist */,
 			);
+			name = Tests;
 			path = RNMoValiTests;
 			sourceTree = "<group>";
 		};

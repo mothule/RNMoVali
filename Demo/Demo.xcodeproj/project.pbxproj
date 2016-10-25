@@ -7,16 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		541EDFBD1D6F4E22005EC311 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 541EDFB21D6F4E22005EC311 /* Info.plist */; };
-		541EDFBE1D6F4E22005EC311 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB31D6F4E22005EC311 /* Regex.swift */; };
-		541EDFBF1D6F4E22005EC311 /* RNConstrainRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB41D6F4E22005EC311 /* RNConstrainRange.swift */; };
-		541EDFC01D6F4E22005EC311 /* RNConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB51D6F4E22005EC311 /* RNConstraint.swift */; };
-		541EDFC11D6F4E22005EC311 /* RNConstraintAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB61D6F4E22005EC311 /* RNConstraintAlphabet.swift */; };
-		541EDFC21D6F4E22005EC311 /* RNConstraintLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB71D6F4E22005EC311 /* RNConstraintLength.swift */; };
-		541EDFC31D6F4E22005EC311 /* RNConstraintNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB81D6F4E22005EC311 /* RNConstraintNumeric.swift */; };
-		541EDFC41D6F4E22005EC311 /* RNConstraintRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFB91D6F4E22005EC311 /* RNConstraintRegex.swift */; };
-		541EDFC51D6F4E22005EC311 /* RNConstraintRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFBA1D6F4E22005EC311 /* RNConstraintRequired.swift */; };
-		541EDFC61D6F4E22005EC311 /* RNValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541EDFBC1D6F4E22005EC311 /* RNValidator.swift */; };
+		548953561DBFB0E400C8D800 /* RNMoVali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548953551DBFB0E400C8D800 /* RNMoVali.framework */; };
+		548953571DBFB0E400C8D800 /* RNMoVali.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 548953551DBFB0E400C8D800 /* RNMoVali.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54BCD8F81D6C30EA00640B5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8F71D6C30EA00640B5B /* AppDelegate.swift */; };
 		54BCD8FA1D6C30EA00640B5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCD8F91D6C30EA00640B5B /* ViewController.swift */; };
 		54BCD8FD1D6C30EA00640B5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54BCD8FB1D6C30EA00640B5B /* Main.storyboard */; };
@@ -24,18 +16,22 @@
 		54BCD9021D6C30EA00640B5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54BCD9001D6C30EA00640B5B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		548953581DBFB0E400C8D800 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				548953571DBFB0E400C8D800 /* RNMoVali.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		541EDFB21D6F4E22005EC311 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		541EDFB31D6F4E22005EC311 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
-		541EDFB41D6F4E22005EC311 /* RNConstrainRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstrainRange.swift; sourceTree = "<group>"; };
-		541EDFB51D6F4E22005EC311 /* RNConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraint.swift; sourceTree = "<group>"; };
-		541EDFB61D6F4E22005EC311 /* RNConstraintAlphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintAlphabet.swift; sourceTree = "<group>"; };
-		541EDFB71D6F4E22005EC311 /* RNConstraintLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintLength.swift; sourceTree = "<group>"; };
-		541EDFB81D6F4E22005EC311 /* RNConstraintNumeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintNumeric.swift; sourceTree = "<group>"; };
-		541EDFB91D6F4E22005EC311 /* RNConstraintRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintRegex.swift; sourceTree = "<group>"; };
-		541EDFBA1D6F4E22005EC311 /* RNConstraintRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNConstraintRequired.swift; sourceTree = "<group>"; };
-		541EDFBB1D6F4E22005EC311 /* RNMoVali.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNMoVali.h; sourceTree = "<group>"; };
-		541EDFBC1D6F4E22005EC311 /* RNValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNValidator.swift; sourceTree = "<group>"; };
+		548953551DBFB0E400C8D800 /* RNMoVali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RNMoVali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8F41D6C30EA00640B5B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BCD8F71D6C30EA00640B5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54BCD8F91D6C30EA00640B5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,35 +46,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548953561DBFB0E400C8D800 /* RNMoVali.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		541EDFB11D6F4E22005EC311 /* RNMoVali */ = {
-			isa = PBXGroup;
-			children = (
-				541EDFB21D6F4E22005EC311 /* Info.plist */,
-				541EDFB31D6F4E22005EC311 /* Regex.swift */,
-				541EDFB41D6F4E22005EC311 /* RNConstrainRange.swift */,
-				541EDFB51D6F4E22005EC311 /* RNConstraint.swift */,
-				541EDFB61D6F4E22005EC311 /* RNConstraintAlphabet.swift */,
-				541EDFB71D6F4E22005EC311 /* RNConstraintLength.swift */,
-				541EDFB81D6F4E22005EC311 /* RNConstraintNumeric.swift */,
-				541EDFB91D6F4E22005EC311 /* RNConstraintRegex.swift */,
-				541EDFBA1D6F4E22005EC311 /* RNConstraintRequired.swift */,
-				541EDFBB1D6F4E22005EC311 /* RNMoVali.h */,
-				541EDFBC1D6F4E22005EC311 /* RNValidator.swift */,
-			);
-			name = RNMoVali;
-			path = ../RNMoVali;
-			sourceTree = "<group>";
-		};
 		54BCD8EB1D6C30EA00640B5B = {
 			isa = PBXGroup;
 			children = (
-				541EDFB11D6F4E22005EC311 /* RNMoVali */,
+				548953551DBFB0E400C8D800 /* RNMoVali.framework */,
 				54BCD8F61D6C30EA00640B5B /* Demo */,
 				54BCD8F51D6C30EA00640B5B /* Products */,
 			);
@@ -115,6 +93,7 @@
 				54BCD8F01D6C30EA00640B5B /* Sources */,
 				54BCD8F11D6C30EA00640B5B /* Frameworks */,
 				54BCD8F21D6C30EA00640B5B /* Resources */,
+				548953581DBFB0E400C8D800 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,7 +144,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				541EDFBD1D6F4E22005EC311 /* Info.plist in Resources */,
 				54BCD9021D6C30EA00640B5B /* LaunchScreen.storyboard in Resources */,
 				54BCD8FF1D6C30EA00640B5B /* Assets.xcassets in Resources */,
 				54BCD8FD1D6C30EA00640B5B /* Main.storyboard in Resources */,
@@ -180,16 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54BCD8FA1D6C30EA00640B5B /* ViewController.swift in Sources */,
-				541EDFC61D6F4E22005EC311 /* RNValidator.swift in Sources */,
 				54BCD8F81D6C30EA00640B5B /* AppDelegate.swift in Sources */,
-				541EDFC41D6F4E22005EC311 /* RNConstraintRegex.swift in Sources */,
-				541EDFBE1D6F4E22005EC311 /* Regex.swift in Sources */,
-				541EDFC11D6F4E22005EC311 /* RNConstraintAlphabet.swift in Sources */,
-				541EDFC31D6F4E22005EC311 /* RNConstraintNumeric.swift in Sources */,
-				541EDFC21D6F4E22005EC311 /* RNConstraintLength.swift in Sources */,
-				541EDFC51D6F4E22005EC311 /* RNConstraintRequired.swift in Sources */,
-				541EDFC01D6F4E22005EC311 /* RNConstraint.swift in Sources */,
-				541EDFBF1D6F4E22005EC311 /* RNConstrainRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
