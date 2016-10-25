@@ -32,7 +32,7 @@ open class RNConstraintResult {
 /**
     validate able to protocol for model
  */
-public protocol RNValidatable: AnyObject {
+public protocol RNValidatable {
     func bindConstraint(binder: RNConstraintBinder)
 }
 
@@ -48,7 +48,7 @@ public extension RNValidatable {
     @warn do not keep it scope out. it have unowned var.
  */
 public struct RNValidationProvider {
-    private unowned var validatable:RNValidatable
+    private var validatable:RNValidatable
     public init(validatable:RNValidatable){
         self.validatable = validatable
     }

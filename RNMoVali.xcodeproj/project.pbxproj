@@ -103,27 +103,11 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		541EDF9F1D6F4071005EC311 /* Constraint */ = {
-			isa = PBXGroup;
-			children = (
-				2F0422991D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift */,
-			);
-			name = Constraint;
-			sourceTree = "<group>";
-		};
-		541EDFA01D6F4079005EC311 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */,
-			);
-			name = Validation;
-			sourceTree = "<group>";
-		};
 		541EDFA11D6F4084005EC311 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				541EDF9F1D6F4071005EC311 /* Constraint */,
-				541EDFA01D6F4079005EC311 /* Validation */,
+				2F0422991D6ED2FA001EEE76 /* RNFieldConstraintsTests.swift */,
+				54BCD8E01D6C309300640B5B /* RNMoValiTests.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";

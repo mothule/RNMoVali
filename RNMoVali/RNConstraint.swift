@@ -24,10 +24,10 @@ open class RNFieldConstraints {
 
 // A Binder class to bind constraints to field.
 open class RNConstraintBinder {
-    fileprivate var targetModel: AnyObject
+    private var targetModel: RNValidatable
     internal var constraints: [RNFieldConstraints] = []
     
-    public init(targetModel: AnyObject) {
+    public init(targetModel: RNValidatable) {
         self.targetModel = targetModel
     }
     

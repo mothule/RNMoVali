@@ -66,6 +66,52 @@ class RNMoValiTests: XCTestCase {
         }
     }
     
+    /**
+    Mock struct 1
+     */
+    struct User : RNValidatable {
+        var email:String
+        var password:String
+        
+        func bindConstraint(binder: RNConstraintBinder)
+        {
+            _ = binder.bind(field: email, accessTag: "email").add(constraint: RNConstraintLength(max: 5, errorMessage: "hoge"))
+        }
+    }
+    
+    
+    
+    // 正常系
+    // デフォルトエラーメッセージの表示
+    func test__Usecase_ErrorMessageIsDefault_ShouldShowDefaultErrorMessage() {
+        
+        struct Hoge : RNValidatable {
+            var name:String
+            
+            fileprivate func bindConstraint(binder: RNConstraintBinder) {
+                _ = binder.bind(field: name, accessTag: "name").add(constraint: RNConstraintLength(max:5) )
+            }
+        }
+        
+        let tgt = Hoge(name:"hogehoge")
+        let ret = tgt.rn.validate()
+        ret.isValid.is(false)
+        ret.fields["name"]?.messages[0].is("Should enter 5 characters or less.")
+    }
+    
+    
+    // 正常系
+    // struct型で正常動作すること.
+    func test__Usecase_StructFields_Work() {
+        let target = User(email: "hogehoge", password: "asdf")
+        
+        let ret = target.rn.validate()
+        ret.isValid.is(false)
+        let nameResult = ret.fields["email"]
+        nameResult?.isContainsError.is(true)
+        nameResult?.messages[0].is("hoge")
+    }
+    
     
 
     // 正常系

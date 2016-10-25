@@ -24,6 +24,11 @@ open class RNConstraintLength : RNConstraintable {
         self.max = max
         self.errorMessage = errorMessage
     }
+    public init(max:Int){
+        self.min = 0
+        self.max = max
+        self.errorMessage = String(format:"Should enter %d characters or less.", self.max)
+    }
     
     open func constrain(_ object:Any?) -> RNConstraintResult{
         let ret = RNConstraintResult()
